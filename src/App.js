@@ -19,12 +19,10 @@ class App extends React.Component {
   componentDidMount() {
     const storedTasks = localStorage.getItem('tasksList')
     if (storedTasks != null) {
-        
       const parsedTasks = JSON.parse(storedTasks)
       this.setState({tasks: parsedTasks, upDatedFilteredTasks: parsedTasks})
     }
   }
-
 
   updateLocalStorage = () => {
     const {tasks} = this.state
@@ -58,6 +56,7 @@ class App extends React.Component {
     if (filterPriority !== '') {
       filteredTasks = filteredTasks.filter(t => t.priority === filterPriority)
     }
+
     this.setState({upDatedFilteredTasks: filteredTasks})
   }
 
@@ -70,15 +69,12 @@ class App extends React.Component {
     )
   }
 
-
-
   formatDate = date => {
     let day = date.getDate()
     let month = date.getMonth() + 1
     const year = date.getFullYear()
     day = String(day).padStart(2, '0')
     month = String(month).padStart(2, '0')
-
     return `${day}/${month}/${year}`
   }
 
@@ -109,7 +105,6 @@ class App extends React.Component {
   }
 
   changeFilterAssignee = e => {
-<<<<<<< HEAD
     this.setState({filterAssignee: e.target.value}, this.updateFilters)
   }
 
@@ -123,27 +118,6 @@ class App extends React.Component {
 
   changeFilterEndDate = e => {
     this.setState({filterEndDate: e.target.value}, this.updateFilters)
-=======
-    this.setState(
-      {filterAssignee: e.target.value},
-      this.upDateFilterTasksAssignee,
-    )
-  }
-
-  changeFilterPriority = e => {
-    this.setState(
-      {filterPriority: e.target.value},
-      this.upDateFilterTasksPriority,
-    )
-  }
-
-  changeFilterStartDate = e => {
-    this.setState({filterStartDate: e.target.value}, this.upDateFilterTasksDate)
-  }
-
-  changeFilterEndDate = e => {
-    this.setState({filterEndDate: e.target.value}, this.upDateFilterTasksDate)
->>>>>>> 959e57f38aadd94972a2f45a1c21ba782dd9e682
   }
 
   changeSortBy = e => {
