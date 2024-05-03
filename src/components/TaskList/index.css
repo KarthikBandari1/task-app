@@ -1,0 +1,39 @@
+.task-list {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+}
+.pending-cont {
+  background-color: white;
+  border-radius: 5px;
+  width: 250px;
+}
+.pending-text {
+  background-color: #8c8b90;
+  text-align: center;
+  font-size: 17px;
+  padding: 4px 2px 4px 2px;
+  color: white;
+  font-weight: 500;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.inp-text {
+  background-color: #e69925;
+}
+
+.com-text {
+  background-color: #42a81e;
+}
+
+.dep-text {
+  background-color: #363976;
+}
+
+.def-text {
+  background-color: #f68871;
+}
+.task-cont {
+  padding: 0px 5px 5px 5px;
+  margin: 5px;
+}
