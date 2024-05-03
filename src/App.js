@@ -30,6 +30,7 @@ class App extends React.Component {
     this.clearFilters()
   }
 
+<<<<<<< HEAD
   updateFilters = () => {
     const {
       filterAssignee,
@@ -57,6 +58,30 @@ class App extends React.Component {
       filteredTasks = filteredTasks.filter(t => t.priority === filterPriority)
     }
     this.setState({upDatedFilteredTasks: filteredTasks})
+=======
+  upDateFilterTasksAssignee = () => {
+    const {filterAssignee, upDatedFilteredTasks} = this.state
+    const newTasks = upDatedFilteredTasks.filter(t =>
+      t.assignee.toLowerCase().includes(filterAssignee.toLowerCase()),
+    )
+    this.setState({upDatedFilteredTasks: newTasks})
+  }
+
+  upDateFilterTasksPriority = () => {
+    const {filterPriority, upDatedFilteredTasks} = this.state
+    const newTasks = upDatedFilteredTasks.filter(
+      t => t.priority === filterPriority,
+    )
+    this.setState({upDatedFilteredTasks: newTasks})
+  }
+
+  upDateFilterTasksDate = () => {
+    const {filterStartDate, filterEndDate, upDatedFilteredTasks} = this.state
+    const newTasks = upDatedFilteredTasks.filter(
+      t => t.startDate >= filterStartDate && t.startDate <= filterEndDate,
+    )
+    this.setState({upDatedFilteredTasks: newTasks})
+>>>>>>> 959e57f38aadd94972a2f45a1c21ba782dd9e682
   }
 
   addTask = task => {
@@ -105,6 +130,7 @@ class App extends React.Component {
   }
 
   changeFilterAssignee = e => {
+<<<<<<< HEAD
     this.setState({filterAssignee: e.target.value}, this.updateFilters)
   }
 
@@ -118,6 +144,27 @@ class App extends React.Component {
 
   changeFilterEndDate = e => {
     this.setState({filterEndDate: e.target.value}, this.updateFilters)
+=======
+    this.setState(
+      {filterAssignee: e.target.value},
+      this.upDateFilterTasksAssignee,
+    )
+  }
+
+  changeFilterPriority = e => {
+    this.setState(
+      {filterPriority: e.target.value},
+      this.upDateFilterTasksPriority,
+    )
+  }
+
+  changeFilterStartDate = e => {
+    this.setState({filterStartDate: e.target.value}, this.upDateFilterTasksDate)
+  }
+
+  changeFilterEndDate = e => {
+    this.setState({filterEndDate: e.target.value}, this.upDateFilterTasksDate)
+>>>>>>> 959e57f38aadd94972a2f45a1c21ba782dd9e682
   }
 
   changeSortBy = e => {
